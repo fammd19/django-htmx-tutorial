@@ -11,8 +11,10 @@
         <div class="form-group mb-3">
             <label>{{ form.username.label_tag }}</label>
             {{ form.username.errors }}
-            {% render_field form.username class="form-control" %}
-
+            {% render_field form.username hx-post="/check-username/" hx-swap="outerhtml" hx-target="#username-err" hx-trigger="keyup" class="form-control" %}
+            <div id="username-err"></div>
+        </div>
+        <div>
             <label>{{ form.password1.label_tag }}</label>
             {{ form.password1.errors }}
             {% render_field form.password1 class="form-control" %}
@@ -26,3 +28,5 @@
     </form>
 </div>
 {% endblock content %}
+
+
